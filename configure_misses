@@ -1,0 +1,3 @@
+Configure miss: uint16_t
+Configure miss: connect in -lsocket
+Configure miss: whether __progname is declared
