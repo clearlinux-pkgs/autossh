@@ -4,7 +4,7 @@
 #
 Name     : autossh
 Version  : 1.4g
-Release  : 1
+Release  : 2
 URL      : https://www.harding.motd.ca/autossh/autossh-1.4g.tgz
 Source0  : https://www.harding.motd.ca/autossh/autossh-1.4g.tgz
 Summary  : No detailed summary available
@@ -57,23 +57,24 @@ man components for the autossh package.
 
 %prep
 %setup -q -n autossh-1.4g
+cd %{_builddir}/autossh-1.4g
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571855645
+export SOURCE_DATE_EPOCH=1604886331
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1571855645
+export SOURCE_DATE_EPOCH=1604886331
 rm -rf %{buildroot}
 %make_install
 
